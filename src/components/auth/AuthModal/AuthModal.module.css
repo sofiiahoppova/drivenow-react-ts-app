@@ -1,0 +1,47 @@
+.title {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--navi-blue);
+  margin-bottom: 8px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--dark-gray);
+  text-align: left;
+  margin-bottom: 36px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 24px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--navi-blue);
+
+  color: var(--navi-blue);
+  font-weight: 400;
+  font-size: 16px;
+
+  transition: background-color 300ms ease;
+}
+
+.btn:hover {
+  background-color: #244a5b23;
+}
+
+.btnAccent {
+  color: var(--white);
+  background-color: var(--navi-blue);
+}
+
+.btnAccent:hover {
+  background-color: var(--navi-blue-hover);
+}

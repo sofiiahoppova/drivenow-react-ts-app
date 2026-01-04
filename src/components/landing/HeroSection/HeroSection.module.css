@@ -1,0 +1,89 @@
+.container {
+  padding: 190px 124px;
+  background-image: url("/images/HeroBackground.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  text-align: right;
+}
+
+.title {
+  font-weight: 300;
+  font-size: 64px;
+  color: var(--navi-blue);
+}
+
+.description {
+  max-width: 660px;
+  font-weight: 300;
+  font-size: 24px;
+  color: var(--white);
+}
+
+.list {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  align-items: center;
+}
+
+.item {
+  border-radius: 48px;
+  padding: 18px 64px;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--white);
+  transition: background-color 300ms linear;
+}
+
+.item:nth-child(1) {
+  border: 1px solid #fff;
+  background-color: none;
+}
+
+.item:nth-child(2) {
+  background-color: var(--navi-blue);
+}
+
+.item:nth-child(1):hover {
+  background-color: #ffffff26;
+}
+
+.item:nth-child(2):hover {
+  background-color: var(--navi-blue-hover);
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 120px 64px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .list {
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .item {
+    width: 150px;
+    padding: 12px 32px;
+    font-size: 18px;
+  }
+}

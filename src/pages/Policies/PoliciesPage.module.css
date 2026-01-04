@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  text-align: left;
+}
+
+.mainTitle {
+  font-weight: 300;
+  font-size: 48px;
+  text-align: center;
+  color: var(--navi-blue);
+
+  margin-bottom: 32px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.describtion {
+  margin-bottom: 24px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.styledList {
+  list-style: circle;
+  margin-left: 24px;
+}
+
+ol li::marker {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.accentText {
+  font-weight: 400;
+}
+
+.planList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.plan {
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.redPlan {
+  color: var(--accent-red);
+}
+
+.greenPlan {
+  color: var(--accent-green);
+}
+
+@media only screen and (max-width: 767px) {
+  .mainTitle {
+    font-size: 32px;
+  }
+
+  ol li::marker {
+    font-size: 16px;
+  }
+
+  .plan {
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 24px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 48%);
+  gap: 24px;
+}
+
+.basicBtn {
+  border-radius: 24px;
+  padding: 8px 48px;
+  background-color: var(--navi-blue);
+  margin-right: auto;
+
+  color: var(--white);
+  font-weight: 400;
+  font-size: 16px;
+
+  transition: background-color 300ms ease;
+}
+
+.basicBtn:hover {
+  background-color: var(--navi-blue-hover);
+}
+
+@media only screen and (max-width: 767px) {
+  .form {
+    grid-template-columns: repeat(1, 100%);
+  }
+}

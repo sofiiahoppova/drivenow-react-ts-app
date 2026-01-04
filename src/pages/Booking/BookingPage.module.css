@@ -1,0 +1,28 @@
+.container {
+  padding: 32px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.wrapper {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+@media only screen and (max-width: 1040px) {
+  .container {
+    padding: 32px 12px;
+  }
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}

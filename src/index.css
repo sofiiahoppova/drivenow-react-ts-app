@@ -1,0 +1,137 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-VariableFont_wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kodchasan";
+  src: url("/src/assets/fonts/Kodchasan-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KdamThmorPro";
+  src: url("/src/assets/fonts/KdamThmorPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: Roboto, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  --black: #000000;
+  --white: #fff;
+  --inputs: #f7f7f7;
+  --badges: #f2f4f7;
+  --gray: #f0f0f0;
+  --dark-gray: #b6b6b6;
+  --navi-blue: #244a5b;
+  --navi-blue-hover: #1e3d4b;
+  --rating: #ffc531;
+  --accent-red: #ff016c;
+  --accent-green: #2cb67d;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+
+  color: var(--main);
+  background-color: var(--white);
+
+  padding: 0;
+  margin: 0;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--navi-blue);
+  margin-bottom: 64px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 20px;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+  font-family: inherit;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--gray);
+}
+
+@media only screen and (max-width: 767px) {
+  h2 {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

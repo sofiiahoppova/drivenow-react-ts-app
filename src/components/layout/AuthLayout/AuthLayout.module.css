@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.logoWrapper {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+}
+
+.background {
+  width: 50%;
+  background-image: url("/images/HeroBackground.jpg");
+  background-size: cover;
+  background-position: center;
+}

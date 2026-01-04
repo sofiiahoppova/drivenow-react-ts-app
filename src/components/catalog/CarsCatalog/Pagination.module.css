@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.chevron:disabled > .icon {
+  fill: var(--dark-gray);
+}
+
+.btnWrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.btn,
+.dots {
+  color: var(--navi-blue);
+  font-size: 15px;
+}
+
+.current {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+
+  background-color: var(--navi-blue);
+}
+
+.currentBtn {
+  color: var(--white);
+}

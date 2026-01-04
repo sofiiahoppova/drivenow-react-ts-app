@@ -1,0 +1,46 @@
+.title {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--navi-blue);
+  margin-bottom: 8px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--dark-gray);
+  text-align: left;
+  margin-bottom: 36px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: end;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 24px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--navi-blue);
+
+  color: var(--white);
+  font-weight: 400;
+  font-size: 16px;
+
+  transition: background-color 300ms ease;
+}
+
+.btn:hover {
+  background-color: var(--navi-blue-hover);
+}
+
+.btnAccent {
+  background-color: var(--accent-red);
+}
+
+.btnAccent:hover {
+  background-color: #ff004c;
+}

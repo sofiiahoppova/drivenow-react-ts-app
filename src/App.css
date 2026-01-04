@@ -1,0 +1,14 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+section {
+  padding: 100px;
+}
+
+@media only screen and (max-width: 767px) {
+  section {
+    padding: 64px 32px;
+  }
+}

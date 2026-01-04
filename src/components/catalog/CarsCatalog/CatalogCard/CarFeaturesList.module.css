@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+}
+
+.listItem {
+  border-radius: 50px;
+  padding: 8px 16px;
+  background-color: var(--gray);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.text {
+  color: var(--navi-blue);
+  font-size: 18px;
+}
+
+.small {
+  font-size: 16px;
+}

@@ -1,0 +1,40 @@
+.container {
+  background-image: url("/images/BenefitsBackground.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.mainTitle {
+  color: var(--white);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 32px;
+  column-gap: 64px;
+}
+
+.image {
+  margin: auto;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.description {
+  color: #fff;
+  max-width: 224px;
+}
+
+@media only screen and (max-width: 767px) {
+  .list {
+    flex-direction: column;
+    gap: 64px;
+  }
+}

@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  align-items: center;
+  gap: 24px;
+}
+
+.button {
+  border-radius: 32px;
+  padding: 16px 72px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background-color: var(--navi-blue);
+
+  font-size: 20px;
+  color: #fff;
+}
+
+@media only screen and (max-width: 430px) {
+  .btnWrapper {
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+    padding: 16px 0;
+    justify-content: center;
+  }
+}

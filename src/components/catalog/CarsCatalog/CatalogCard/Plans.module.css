@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titleWrapper {
+  border: 1px solid var(--dark-gray);
+  border-radius: 32px;
+  padding: 6px 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--navi-blue);
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--navi-blue);
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--dark-gray);
+}
+
+.boldText {
+  font-weight: 500;
+  color: #000;
+}
+
+.price {
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.depositWrapper {
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: var(--gray);
+}
+
+.deposit {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.accentRed {
+  color: var(--accent-red);
+}
+
+.accentGreen {
+  color: var(--accent-green);
+}
+
+.bookBtn {
+  border: 1px solid var(--navi-blue);
+  border-radius: 50px;
+  padding: 16px 32px;
+
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--navi-blue);
+}
+
+.accentBtn {
+  color: var(--white);
+  border: none;
+  background-color: var(--navi-blue);
+}

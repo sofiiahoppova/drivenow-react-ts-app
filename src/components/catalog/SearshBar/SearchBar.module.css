@@ -1,0 +1,47 @@
+.container {
+  padding: 100px 64px;
+
+  background-image: linear-gradient(rgba(36, 74, 91, 0.6)),
+    url("/images/HeroBackground.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  padding: 32px 64px;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+
+  background-color: var(--white);
+}
+
+.button {
+  border-radius: 32px;
+  padding: 16px 72px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background-color: var(--navi-blue);
+
+  font-size: 20px;
+  color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .form {
+    padding: 32px;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    justify-content: end;
+  }
+}
