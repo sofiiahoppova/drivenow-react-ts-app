@@ -11,7 +11,7 @@ const modalSlice = createSlice({
       state.component = action.payload.component;
       state.props = action.payload.props;
     },
-    setClose(state, action) {
+    setClose(state) {
       state.isOpen = false;
       state.component = null;
       state.props = null;
