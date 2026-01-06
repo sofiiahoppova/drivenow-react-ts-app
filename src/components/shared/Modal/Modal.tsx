@@ -1,11 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { setClose } from "/src/redux/modal/modalSlice";
+import { setClose } from "../../../redux/modal/modalSlice";
 
 import css from "./Modal.module.css";
 
-const Modal = ({ children }) => {
+interface Props {
+  children: React.ReactNode | React.ReactNode[];
+}
+
+const Modal = ({ children }: Props) => {
   const dispatch = useDispatch();
 
   return (

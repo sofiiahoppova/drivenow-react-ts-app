@@ -1,9 +1,15 @@
-import React from "react";
 import { Field, ErrorMessage } from "formik";
 
 import css from "./InputField.module.css";
 
-const InputField = ({ label, id, placeholder, reqiered = false }) => {
+interface Props {
+  label: string;
+  id: string;
+  placeholder?: string;
+  reqiered?: true;
+}
+
+const InputField = ({ label, id, placeholder, reqiered }: Props) => {
   return (
     <label className={css.wrapper}>
       <span className={css.label}>

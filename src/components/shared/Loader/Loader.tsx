@@ -1,4 +1,3 @@
-import React from "react";
 import { MagnifyingGlass } from "react-loader-spinner";
 
 import css from "./Loader.module.css";
