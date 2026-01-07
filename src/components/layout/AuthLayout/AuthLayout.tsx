@@ -4,7 +4,9 @@ import Logo from "../../shared/Logo/Logo";
 
 import css from "./AuthLayout.module.css";
 
-const AuthLayout = ({ children }) => {
+interface Props extends React.PropsWithChildren {}
+
+const AuthLayout = ({ children }: Props) => {
   return (
     <div className={css.container}>
       <div className={css.logoWrapper}>
