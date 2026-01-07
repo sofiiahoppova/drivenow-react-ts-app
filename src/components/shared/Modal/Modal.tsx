@@ -5,9 +5,7 @@ import { setClose } from "../../../redux/modal/modalSlice";
 
 import css from "./Modal.module.css";
 
-interface Props {
-  children: React.ReactNode | React.ReactNode[];
-}
+interface Props extends React.PropsWithChildren {}
 
 const Modal = ({ children }: Props) => {
   const dispatch = useDispatch();
