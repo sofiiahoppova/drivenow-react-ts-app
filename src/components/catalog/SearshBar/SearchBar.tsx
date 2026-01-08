@@ -1,20 +1,24 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Formik } from "formik";
 import toast from "react-hot-toast";
 
 import DatesInputs from "./DatesInputs";
 
-import { selectDates } from "/src/redux/filters/selectors.js";
-import { setDates } from "/src/redux/filters/filtersSlice.js";
+import { selectDates } from "../../../redux/filters/selectors";
+import { setDates } from "../../../redux/filters/filtersSlice";
 
 import css from "./SearchBar.module.css";
+
+export interface SearchBarFormValues {
+  pickup: string;
+  dropoff: string;
+}
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const { startDate, endDate } = useSelector(selectDates);
 
-  const handleSearch = (values) => {
+  const handleSearch = (values: SearchBarFormValues) => {
     const pickupDate = values.pickup;
     const dropoffDate = values.dropoff;
     const dateNow = Date.now();
@@ -38,7 +42,10 @@ const SearchBar = () => {
     }
   };
 
-  const initialValues = { pickup: startDate || "", dropoff: endDate || "" };
+  const initialValues: SearchBarFormValues = {
+    pickup: startDate || "",
+    dropoff: endDate || "",
+  };
 
   return (
     <div className={css.container}>

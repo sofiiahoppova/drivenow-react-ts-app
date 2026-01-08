@@ -1,4 +1,3 @@
-import React from "react";
 import { Field } from "formik";
 
 import css from "./DatesInputs.module.css";

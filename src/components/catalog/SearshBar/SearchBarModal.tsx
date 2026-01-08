@@ -1,22 +1,28 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Form, Formik } from "formik";
 import toast from "react-hot-toast";
 
 import DatesInputs from "./DatesInputs";
 
-import { selectDates } from "/src/redux/filters/selectors.js";
-import { setDates } from "/src/redux/filters/filtersSlice.js";
-import { setClose } from "/src/redux/modal/modalSlice.js";
+import { selectDates } from "../../../redux/filters/selectors";
+import { setDates } from "../../../redux/filters/filtersSlice";
+import { setClose } from "../../../redux/modal/modalSlice";
+
+import { SearchBarFormValues } from "./SearchBar";
 
 import css from "./SearchBarModal.module.css";
 
-const SearchBarModal = ({ carId }) => {
+interface Props {
+  carId: number;
+}
+
+const SearchBarModal = ({ carId }: Props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { startDate, endDate } = useSelector(selectDates);
 
-  const handleSearch = (values) => {
+  const handleSearch = (values: SearchBarFormValues) => {
     const pickupDate = values.pickup;
     const dropoffDate = values.dropoff;
     const dateNow = Date.now();
@@ -37,7 +43,10 @@ const SearchBarModal = ({ carId }) => {
     }
   };
 
-  const initialValues = { pickup: startDate || "", dropoff: endDate || "" };
+  const initialValues: SearchBarFormValues = {
+    pickup: startDate || "",
+    dropoff: endDate || "",
+  };
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSearch}>
