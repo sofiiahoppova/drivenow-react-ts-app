@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Navigation from "./Navigation";
-import Logo from "../../shared/Logo/Logo";
+import Logo from "@/components/shared/Logo/Logo";
 
 import css from "./Header.module.css";
 

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import Logo from "../../shared/Logo/Logo";
+import Logo from "@/components/shared/Logo/Logo";
 
 import css from "./Footer.module.css";
 

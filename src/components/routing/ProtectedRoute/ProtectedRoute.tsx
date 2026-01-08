@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-import Loader from "../../shared/Loader/Loader";
+import Loader from "@/components/shared/Loader/Loader";
 
 import {
   selectIsAuthenticated,
   selectIsInitialized,
-} from "../../../redux/user/selectors";
-import { setOpen } from "../../../redux/modal/modalSlice";
+} from "@/redux/user/selectors";
+import { setOpen } from "@/redux/modal/modalSlice";
 
 const ProtectedRoute = () => {
   const dispatch = useDispatch();

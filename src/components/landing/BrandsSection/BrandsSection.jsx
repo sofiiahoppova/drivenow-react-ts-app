@@ -1,12 +1,11 @@
-import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 import { SampleNextArrow, SamplePrevArrow } from "./components/SliderArrows";
 import { CustomSlide } from "./components/CustomSlide";
 
-import { useDispatch } from "react-redux";
-import { setFilter } from "/src/redux/filters/filtersSlice";
+import { setFilter } from "@/redux/filters/filtersSlice";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

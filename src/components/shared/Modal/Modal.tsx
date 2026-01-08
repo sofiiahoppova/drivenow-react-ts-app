@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { setClose } from "../../../redux/modal/modalSlice";
+import { setClose } from "@/redux/modal/modalSlice";
 
 import css from "./Modal.module.css";
 

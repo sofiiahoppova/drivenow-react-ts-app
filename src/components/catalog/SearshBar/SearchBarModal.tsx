@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 
 import DatesInputs from "./DatesInputs";
 
-import { selectDates } from "../../../redux/filters/selectors";
-import { setDates } from "../../../redux/filters/filtersSlice";
-import { setClose } from "../../../redux/modal/modalSlice";
+import { selectDates } from "@/redux/filters/selectors";
+import { setDates } from "@/redux/filters/filtersSlice";
+import { setClose } from "@/redux/modal/modalSlice";
 
 import { SearchBarFormValues } from "./SearchBar";
 
