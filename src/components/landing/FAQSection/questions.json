@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "header": "How can I rent a car on DriveNow?",
+    "answer": "Simply select your desired dates, choose a car from the available options, and complete your booking online — it only takes a few minutes."
+  },
+  {
+    "id": 2,
+    "header": "Do I need to pay a deposit?",
+    "answer": "If you choose a plan without Full Coverage, a refundable deposit is required. For Full Coverage bookings, no deposit is needed."
+  },
+  {
+    "id": 3,
+    "header": "What documents do I need to rent a car?",
+    "answer": "You`ll need a valid driver`s license, a passport or ID card, and a credit or debit card in your name."
+  },
+  {
+    "id": 4,
+    "header": "Is insurance included in the price?",
+    "answer": "Yes, basic insurance is included in all rentals. You can also upgrade to Full Coverage for complete protection during your trip."
+  },
+  {
+    "id": 5,
+    "header": "Can I cancel or change my booking?",
+    "answer": "Yes, you can modify or cancel your reservation for free up to 24 hours before the rental period starts."
+  },
+  {
+    "id": 6,
+    "header": "Do you offer delivery or pickup service?",
+    "answer": "Yes, we can deliver the car to your chosen location or arrange pickup at our nearest station — just select this option during booking."
+  }
+]
