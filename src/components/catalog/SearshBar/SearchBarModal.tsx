@@ -14,7 +14,7 @@ import { SearchBarFormValues } from "./SearchBar";
 import css from "./SearchBarModal.module.css";
 
 interface Props {
-  carId: number;
+  carId: string;
 }
 
 const SearchBarModal = ({ carId }: Props) => {
