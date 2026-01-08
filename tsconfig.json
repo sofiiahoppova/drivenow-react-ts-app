@@ -4,9 +4,16 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
+    "types": ["node"],
 
     "allowJs": true,
     "strict": true,
+
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@/types": ["types/index.ts"]
+    },
 
     "resolveJsonModule": true,
     "esModuleInterop": true,
