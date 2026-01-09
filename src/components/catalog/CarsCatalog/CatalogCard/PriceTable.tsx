@@ -1,10 +1,17 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 
-import css from "./PriceTable.module.css";
-import { setOpen } from "/src/redux/modal/modalSlice";
+import { Prices } from "@/types";
 
-const PriceTable = ({ prices, carId }) => {
+import { setOpen } from "@/redux/modal/modalSlice";
+
+import css from "./PriceTable.module.css";
+
+interface Props {
+  prices: Prices;
+  carId: number;
+}
+
+const PriceTable = ({ prices, carId }: Props) => {
   const dispatch = useDispatch();
 
   return (

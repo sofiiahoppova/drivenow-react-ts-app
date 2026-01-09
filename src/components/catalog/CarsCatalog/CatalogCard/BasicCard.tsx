@@ -1,16 +1,21 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { Car } from "@/types";
 
 import PriceTable from "./PriceTable";
 import Plans from "./Plans";
 import CarFeaturesList from "./CarFeaturesList";
 
-import { selectDates } from "/src/redux/filters/selectors";
-import { setOpen } from "/src/redux/modal/modalSlice";
+import { selectDates } from "@/redux/filters/selectors";
+import { setOpen } from "@/redux/modal/modalSlice";
 
 import css from "./BasicCard.module.css";
 
-const BasicCard = ({ car }) => {
+interface Props {
+  car: Car;
+}
+
+const BasicCard = ({ car }: Props) => {
   const dispatch = useDispatch();
   const dates = useSelector(selectDates);
 

@@ -1,9 +1,15 @@
-import React from "react";
-
-import css from "./CarFeaturesList.module.css";
 import clsx from "clsx";
 
-const CarFeaturesList = ({ car, size = null }) => {
+import { Car } from "@/types";
+
+import css from "./CarFeaturesList.module.css";
+
+interface Props {
+  car: Car;
+  size?: string | null;
+}
+
+const CarFeaturesList = ({ car, size = null }: Props) => {
   return (
     <ul className={css.list}>
       <li className={css.listItem}>
