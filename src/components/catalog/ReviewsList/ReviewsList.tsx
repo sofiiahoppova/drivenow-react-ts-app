@@ -1,8 +1,12 @@
-import React from "react";
+import { Review } from "@/types";
 
 import css from "./ReviewsList.module.css";
 
-const ReviewsList = ({ reviews }) => {
+interface Props {
+  reviews: Review[];
+}
+
+const ReviewsList = ({ reviews }: Props) => {
   return (
     <div className={css.container}>
       {reviews.map((review) => {
