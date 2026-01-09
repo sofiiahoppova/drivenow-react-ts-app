@@ -1,18 +1,24 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Field, Form, Formik } from "formik";
 import clsx from "clsx";
 
-import { resetFilters, setFilter } from "/src/redux/filters/filtersSlice";
-import { selectFilters } from "/src/redux/filters/selectors";
+import { selectFilters } from "../../../redux/filters/selectors";
+import { resetFilters, setFilter } from "../../../redux/filters/filtersSlice";
 
 import css from "./FiltersBar.module.css";
+
+interface FromValues {
+  transmission: boolean;
+  class: string;
+  brand: string;
+  seats: string;
+}
 
 const FiltersBar = () => {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: FromValues) => {
     dispatch(
       setFilter({
         brand: values.brand || null,
@@ -27,7 +33,7 @@ const FiltersBar = () => {
     dispatch(resetFilters());
   };
 
-  const initialValues = {
+  const initialValues: FromValues = {
     transmission: false,
     class: "",
     brand: filters.brand || "",
