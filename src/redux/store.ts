@@ -17,3 +17,7 @@ export const store = configureStore({
     modal: modalReducer,
   },
 });
+
+export type AppStore = typeof store;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
