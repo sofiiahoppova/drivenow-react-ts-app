@@ -1,28 +1,31 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
-import Loader from "../../shared/Loader/Loader";
+import { Car } from "@/types";
+
+import Loader from "@/components/shared/Loader/Loader";
 import BasicCard from "./CatalogCard/BasicCard";
 import Pagination from "./Pagination";
 
-import { fetchAllCars } from "/src/redux/cars/operations";
+import { useAppDispatch } from "@/redux/hooks";
+import { fetchAllCars } from "@/redux/cars/operations";
 import {
   selectDates,
   selectFilters,
   selectPage,
-} from "/src/redux/filters/selectors";
+} from "@/redux/filters/selectors";
 import {
   selectAllCars,
   selectCarsError,
   selectCarsStatus,
   selectPagination,
-} from "/src/redux/cars/selectors";
+} from "@/redux/cars/selectors";
 
 import css from "./CarsCatalog.module.css";
 
 const CarsCatalog = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { startDate, endDate } = useSelector(selectDates);
   const filters = useSelector(selectFilters);
@@ -58,7 +61,9 @@ const CarsCatalog = () => {
   } else if (carsStatus == "succeeded") {
     content =
       pagination.totalItems >= 1 ? (
-        cars.map((car, index) => <BasicCard key={index} car={car} />)
+        cars.map((car: Car, index: number) => (
+          <BasicCard key={index} car={car} />
+        ))
       ) : (
         <p>
           There is no cars found for this filter results. Try other categories!
