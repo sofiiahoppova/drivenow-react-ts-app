@@ -1,8 +1,17 @@
-import React from "react";
+import { Booking } from "@/types";
+
+import { useAppDispatch } from "@/redux/hooks";
+import { setOpen } from "@/redux/modal/modalSlice";
 
 import css from "./BookingItem.module.css";
 
-const BookingItem = ({ booking }) => {
+interface Props {
+  booking: Booking;
+}
+
+const BookingItem = ({ booking }: Props) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div key={booking.id} className={css.container}>
       <div className={css.wrapper}>

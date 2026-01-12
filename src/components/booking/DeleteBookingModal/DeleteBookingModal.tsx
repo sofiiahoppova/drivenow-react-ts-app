@@ -1,19 +1,24 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 
-import { deleteBooking } from "/src/redux/bookings/operations";
+import { useAppDispatch } from "@/redux/hooks";
+import { deleteBooking } from "@/redux/bookings/operations";
 import {
   selectBookingError,
   selectBookingStatus,
-} from "/src/redux/bookings/selectors";
-import { setClose } from "/src/redux/modal/modalSlice";
+} from "@/redux/bookings/selectors";
+import { setClose } from "@/redux/modal/modalSlice";
 
 import css from "./DeleteBookingModal.module.css";
 
-const DeleteBookingModal = ({ id }) => {
-  const dispatch = useDispatch();
+interface Props {
+  id: number;
+}
+
+const DeleteBookingModal = ({ id }: Props) => {
+  const dispatch = useAppDispatch();
   const status = useSelector(selectBookingStatus);
   const error = useSelector(selectBookingError);
 

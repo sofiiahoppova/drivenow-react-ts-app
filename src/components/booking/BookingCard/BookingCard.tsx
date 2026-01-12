@@ -1,25 +1,26 @@
-import React, { useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 
-import Loader from "../../shared/Loader/Loader";
+import Loader from "@/components/shared/Loader/Loader";
 
-import { selectDates } from "/src/redux/filters/selectors";
-import { calculateDays } from "/src/utils/calculateDays";
-import { calculatePrice } from "/src/utils/calculatePrice";
-import { fetchCarById } from "/src/redux/cars/operations";
+import { useAppDispatch } from "@/redux/hooks";
+import { selectDates } from "@/redux/filters/selectors";
+import { calculateDays } from "@/utils/calculateDays";
+import { calculatePrice } from "@/utils/calculatePrice";
+import { fetchCarById } from "@/redux/cars/operations";
 import {
   selectCar,
   selectCarsError,
   selectCarsStatus,
-} from "/src/redux/cars/selectors";
+} from "@/redux/cars/selectors";
 
 import css from "./BookingCard.module.css";
 
 const BookingCard = () => {
-  const { id } = useParams();
+  const { id = "" } = useParams();
   const [searchParams] = useSearchParams();
   const plan = searchParams.get("plan");
 
@@ -27,7 +28,7 @@ const BookingCard = () => {
   const startDate = dates.startDate ?? localStorage.getItem("startDate");
   const endDate = dates.endDate ?? localStorage.getItem("endDate");
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchCarById(id));
   }, [dispatch, id]);
