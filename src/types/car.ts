@@ -1,11 +1,14 @@
 import { Review } from "./review";
 import { Prices } from "./prices";
 
-export interface Car {
+export interface CarBase {
   id: number;
   brand: string;
   model: string;
   carClass: string;
+}
+
+export interface Car extends CarBase {
   transmission: string;
   fuelType: string;
   year: number;
