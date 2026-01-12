@@ -4,7 +4,7 @@ import { UserBase } from "./user";
 export interface Booking {
   id: number;
   startDate: string;
-  endDate: Date;
+  endDate: string;
   carId: number;
   car: CarBase;
   plan: string;
