@@ -1,8 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchAllCars, fetchCarById } from "./operations";
+import { Car, Pagination } from "@/types";
 
-const initialState = {
-  cars: { entities: [], pagination: {} },
+interface CarsState {
+  cars: {
+    entities: Car[];
+    pagination: Pagination;
+  };
+  car: Car | null;
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
+}
+
+const initialState: CarsState = {
+  cars: { entities: [], pagination: {} as Pagination },
   car: null,
   status: "idle",
   error: null,
@@ -11,9 +22,10 @@ const initialState = {
 export const carsSlice = createSlice({
   name: "cars",
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAllCars.pending, (state, action) => {
+      .addCase(fetchAllCars.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
@@ -24,9 +36,11 @@ export const carsSlice = createSlice({
       })
       .addCase(fetchAllCars.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        if (action.error.message) {
+          state.error = action.error.message;
+        }
       })
-      .addCase(fetchCarById.pending, (state, action) => {
+      .addCase(fetchCarById.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
@@ -36,7 +50,9 @@ export const carsSlice = createSlice({
       })
       .addCase(fetchCarById.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        if (action.error.message) {
+          state.error = action.error.message;
+        }
       });
   },
 });
