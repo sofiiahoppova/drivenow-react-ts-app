@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 
 import { Car } from "@/types";
 
+import { useAppSelector } from "@/redux/hooks";
 import { selectDates } from "@/redux/filters/selectors";
 import { calculateDays } from "@/utils/calculateDays";
 
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Plans = ({ car }: Props) => {
-  const dates = useSelector(selectDates);
+  const dates = useAppSelector(selectDates);
   const days = calculateDays(dates.startDate, dates.endDate);
 
   let period = "";

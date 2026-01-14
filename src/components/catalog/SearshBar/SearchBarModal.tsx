@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import toast from "react-hot-toast";
 
 import DatesInputs from "./DatesInputs";
 
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectDates } from "@/redux/filters/selectors";
 import { setDates } from "@/redux/filters/filtersSlice";
 import { setClose } from "@/redux/modal/modalSlice";
@@ -19,8 +19,8 @@ interface Props {
 
 const SearchBarModal = ({ carId }: Props) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { startDate, endDate } = useSelector(selectDates);
+  const dispatch = useAppDispatch();
+  const { startDate, endDate } = useAppSelector(selectDates);
 
   const handleSearch = (values: SearchBarFormValues) => {
     const pickupDate = values.pickup;

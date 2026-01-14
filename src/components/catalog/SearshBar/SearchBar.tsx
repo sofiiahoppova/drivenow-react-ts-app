@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Form, Formik } from "formik";
 import toast from "react-hot-toast";
 
 import DatesInputs from "./DatesInputs";
 
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectDates } from "@/redux/filters/selectors";
 import { setDates } from "@/redux/filters/filtersSlice";
 
@@ -15,8 +15,8 @@ export interface SearchBarFormValues {
 }
 
 const SearchBar = () => {
-  const dispatch = useDispatch();
-  const { startDate, endDate } = useSelector(selectDates);
+  const dispatch = useAppDispatch();
+  const { startDate, endDate } = useAppSelector(selectDates);
 
   const handleSearch = (values: SearchBarFormValues) => {
     const pickupDate = values.pickup;

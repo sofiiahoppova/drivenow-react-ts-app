@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Field, Form, Formik } from "formik";
 import clsx from "clsx";
 
-import { selectFilters } from "../../../redux/filters/selectors";
-import { resetFilters, setFilter } from "../../../redux/filters/filtersSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectFilters } from "@/redux/filters/selectors";
+import { resetFilters, setFilter } from "@/redux/filters/filtersSlice";
 
 import css from "./FiltersBar.module.css";
 
-interface FromValues {
+interface FormValues {
   transmission: boolean;
   class: string;
   brand: string;
@@ -15,10 +15,10 @@ interface FromValues {
 }
 
 const FiltersBar = () => {
-  const dispatch = useDispatch();
-  const filters = useSelector(selectFilters);
+  const dispatch = useAppDispatch();
+  const filters = useAppSelector(selectFilters);
 
-  const handleSubmit = (values: FromValues) => {
+  const handleSubmit = (values: FormValues) => {
     dispatch(
       setFilter({
         brand: values.brand || null,
@@ -33,7 +33,7 @@ const FiltersBar = () => {
     dispatch(resetFilters());
   };
 
-  const initialValues: FromValues = {
+  const initialValues: FormValues = {
     transmission: false,
     class: "",
     brand: filters.brand || "",

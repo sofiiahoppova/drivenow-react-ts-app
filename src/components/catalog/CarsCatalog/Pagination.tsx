@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setPage } from "@/redux/filters/filtersSlice";
 import { selectPage } from "@/redux/filters/selectors";
 
@@ -11,8 +11,8 @@ interface Props {
 }
 
 const Pagination = ({ pages }: Props) => {
-  const dispatch = useDispatch();
-  const page = useSelector(selectPage);
+  const dispatch = useAppDispatch();
+  const page = useAppSelector(selectPage);
 
   const goTo = (page: number) => dispatch(setPage(page));
 

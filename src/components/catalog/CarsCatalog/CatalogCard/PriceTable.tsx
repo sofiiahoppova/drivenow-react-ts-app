@@ -1,7 +1,6 @@
-import { useDispatch } from "react-redux";
-
 import { Prices } from "@/types";
 
+import { useAppDispatch } from "@/redux/hooks";
 import { setOpen } from "@/redux/modal/modalSlice";
 
 import css from "./PriceTable.module.css";
@@ -12,7 +11,7 @@ interface Props {
 }
 
 const PriceTable = ({ prices, carId }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <>

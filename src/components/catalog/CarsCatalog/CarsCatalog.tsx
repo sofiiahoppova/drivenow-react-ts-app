@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 import { Car } from "@/types";
@@ -8,7 +7,7 @@ import Loader from "@/components/shared/Loader/Loader";
 import BasicCard from "./CatalogCard/BasicCard";
 import Pagination from "./Pagination";
 
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { fetchAllCars } from "@/redux/cars/operations";
 import {
   selectDates,
@@ -27,13 +26,13 @@ import css from "./CarsCatalog.module.css";
 const CarsCatalog = () => {
   const dispatch = useAppDispatch();
 
-  const { startDate, endDate } = useSelector(selectDates);
-  const filters = useSelector(selectFilters);
-  const page = useSelector(selectPage);
-  const cars = useSelector(selectAllCars);
-  const pagination = useSelector(selectPagination);
-  const carsStatus = useSelector(selectCarsStatus);
-  const error = useSelector(selectCarsError);
+  const { startDate, endDate } = useAppSelector(selectDates);
+  const filters = useAppSelector(selectFilters);
+  const page = useAppSelector(selectPage);
+  const cars = useAppSelector(selectAllCars);
+  const pagination = useAppSelector(selectPagination);
+  const carsStatus = useAppSelector(selectCarsStatus);
+  const error = useAppSelector(selectCarsError);
 
   useEffect(() => {
     dispatch(
