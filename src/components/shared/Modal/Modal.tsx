@@ -1,6 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 
+import { useAppDispatch } from "@/redux/hooks";
 import { setClose } from "@/redux/modal/modalSlice";
 
 import css from "./Modal.module.css";
@@ -8,7 +8,7 @@ import css from "./Modal.module.css";
 interface Props extends React.PropsWithChildren {}
 
 const Modal = ({ children }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className={css.overlay}>

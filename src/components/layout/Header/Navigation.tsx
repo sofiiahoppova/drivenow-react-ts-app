@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import clsx from "clsx";
 
+import { useAppSelector } from "@/redux/hooks";
 import { selectMe } from "@/redux/user/selectors";
 
 import css from "./Navigation.module.css";
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Navigation = ({ color, onClose, isMobile }: Props) => {
-  const user = useSelector(selectMe);
+  const user = useAppSelector(selectMe);
   const buildLinkClass = ({ isActive }: { isActive: boolean }) => {
     return clsx(
       css.link,

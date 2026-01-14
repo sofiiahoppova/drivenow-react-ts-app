@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
 import Loader from "@/components/shared/Loader/Loader";
 
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   selectIsAuthenticated,
   selectIsInitialized,
@@ -10,9 +10,9 @@ import {
 import { setOpen } from "@/redux/modal/modalSlice";
 
 const ProtectedRoute = () => {
-  const dispatch = useDispatch();
-  const isInitialized = useSelector(selectIsInitialized);
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const dispatch = useAppDispatch();
+  const isInitialized = useAppSelector(selectIsInitialized);
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
   if (!isInitialized) {
     return <Loader />;
