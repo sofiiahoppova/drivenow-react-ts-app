@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { deleteBooking } from "@/redux/bookings/operations";
 import {
   selectBookingError,
@@ -19,8 +18,8 @@ interface Props {
 
 const DeleteBookingModal = ({ id }: Props) => {
   const dispatch = useAppDispatch();
-  const status = useSelector(selectBookingStatus);
-  const error = useSelector(selectBookingError);
+  const status = useAppSelector(selectBookingStatus);
+  const error = useAppSelector(selectBookingError);
 
   useEffect(() => {
     if (status === "succeeded") {

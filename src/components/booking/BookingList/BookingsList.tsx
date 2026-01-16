@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 import Loader from "@/components/shared/Loader/Loader";
 import BookingItem from "./BookingItem";
 
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { fetchAllBookings } from "@/redux/bookings/operations";
 import {
   selectBookingStatus,
@@ -16,8 +15,8 @@ import css from "./BookingsList.module.css";
 
 const BookingsList = () => {
   const dispatch = useAppDispatch();
-  const bookings = useSelector(selectBookings);
-  const status = useSelector(selectBookingStatus);
+  const bookings = useAppSelector(selectBookings);
+  const status = useAppSelector(selectBookingStatus);
 
   useEffect(() => {
     dispatch(fetchAllBookings());

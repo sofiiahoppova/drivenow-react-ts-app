@@ -1,12 +1,11 @@
 import { useEffect, useMemo } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import clsx from "clsx";
 
 import Loader from "@/components/shared/Loader/Loader";
 
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectDates } from "@/redux/filters/selectors";
 import { calculateDays } from "@/utils/calculateDays";
 import { calculatePrice } from "@/utils/calculatePrice";
@@ -24,7 +23,7 @@ const BookingCard = () => {
   const [searchParams] = useSearchParams();
   const plan = searchParams.get("plan");
 
-  const dates = useSelector(selectDates);
+  const dates = useAppSelector(selectDates);
   const startDate = dates.startDate ?? localStorage.getItem("startDate");
   const endDate = dates.endDate ?? localStorage.getItem("endDate");
 
@@ -33,7 +32,7 @@ const BookingCard = () => {
     dispatch(fetchCarById(id));
   }, [dispatch, id]);
 
-  const car = useSelector(selectCar);
+  const car = useAppSelector(selectCar);
 
   const days = calculateDays(startDate, endDate);
 
@@ -44,8 +43,8 @@ const BookingCard = () => {
     return calculatePrice(car, days, plan);
   }, [car, days, plan]);
 
-  const carsStatus = useSelector(selectCarsStatus);
-  const error = useSelector(selectCarsError);
+  const carsStatus = useAppSelector(selectCarsStatus);
+  const error = useAppSelector(selectCarsError);
 
   useEffect(() => {
     if (carsStatus === "failed") {
