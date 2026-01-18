@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { createBooking, deleteBooking, fetchAllBookings } from "./operations";
 import { Booking } from "@/types";
 
@@ -26,35 +26,29 @@ export const bookingsSlice = createSlice({
         state.status = "loading";
         state.error = null;
       })
-      .addCase(
-        fetchAllBookings.fulfilled,
-        (state, action: PayloadAction<Booking[]>) => {
-          state.status = "succeeded";
-          state.bookings = action.payload;
-        }
-      )
+      .addCase(fetchAllBookings.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.bookings = action.payload;
+      })
       .addCase(fetchAllBookings.rejected, (state, action) => {
         state.status = "failed";
-        if (action.error.message) {
-          state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
         }
       })
       .addCase(createBooking.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(
-        createBooking.fulfilled,
-        (state, action: PayloadAction<Booking>) => {
-          state.status = "succeeded";
-          state.bookings.push(action.payload);
-          state.booking = action.payload;
-        }
-      )
+      .addCase(createBooking.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.bookings.push(action.payload);
+        state.booking = action.payload;
+      })
       .addCase(createBooking.rejected, (state, action) => {
         state.status = "failed";
-        if (action.error.message) {
-          state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
         }
       })
       .addCase(deleteBooking.pending, (state) => {
@@ -66,8 +60,8 @@ export const bookingsSlice = createSlice({
       })
       .addCase(deleteBooking.rejected, (state, action) => {
         state.status = "failed";
-        if (action.error.message) {
-          state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
         }
       });
   },
