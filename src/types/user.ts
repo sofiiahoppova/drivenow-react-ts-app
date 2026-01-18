@@ -7,6 +7,6 @@ export interface UserBase {
 export interface User extends UserBase {
   phoneNumber: string;
   dateOfBirth: string;
-  driverLicenseSerial: string;
-  passportSerial: string;
+  driverLicenseSerial: string | null;
+  passportSerial: string | null;
 }
