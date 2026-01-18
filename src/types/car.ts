@@ -1,5 +1,6 @@
 import { Review } from "./review";
 import { Prices } from "./prices";
+import { Pagination } from "./pagination";
 
 export interface CarBase {
   id: number;
@@ -18,4 +19,9 @@ export interface Car extends CarBase {
   reviewCount: number;
   reviews: Review[];
   prices: Prices;
+}
+
+export interface FetchCarsResponse {
+  data: Car[];
+  pagination: Pagination;
 }
