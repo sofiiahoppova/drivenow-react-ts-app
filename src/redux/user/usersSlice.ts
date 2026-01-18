@@ -1,7 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { fetchUserMe, updateUserMe } from "./operations";
+import { User } from "@/types";
 
-const initialState = {
+interface UserState {
+  user: User | null;
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
+  isAuthenticated: boolean;
+  isInitialized: boolean;
+}
+
+const initialState: UserState = {
   user: null,
   status: "idle",
   error: null,
@@ -14,42 +23,46 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     clearUser: () => initialState,
-    setAuth(state, action) {
+    setAuth(state, action: PayloadAction<boolean>) {
       state.isAuthenticated = action.payload;
     },
-    setInit(state, action) {
+    setInit(state, action: PayloadAction<boolean>) {
       state.isInitialized = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUserMe.pending, (state, action) => {
+      .addCase(fetchUserMe.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
       .addCase(fetchUserMe.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload.data;
+        state.user = action.payload;
         state.isInitialized = true;
         state.isAuthenticated = true;
       })
       .addCase(fetchUserMe.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
+        }
         state.isAuthenticated = false;
         state.isInitialized = true;
       })
-      .addCase(updateUserMe.pending, (state, action) => {
+      .addCase(updateUserMe.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
       .addCase(updateUserMe.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.user = action.payload.data;
+        state.user = action.payload;
       })
       .addCase(updateUserMe.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
+        }
       });
   },
 });
