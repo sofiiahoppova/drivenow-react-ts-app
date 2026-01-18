@@ -1,5 +1,5 @@
 import { CarBase } from "./car";
-import { UserBase } from "./user";
+import { User, UserBase } from "./user";
 
 export interface Booking {
   id: number;
@@ -10,4 +10,12 @@ export interface Booking {
   plan: string;
   status: "pending";
   user: UserBase;
+}
+
+export interface BookingParams {
+  plan: "basicPlan" | "fullCoverage";
+  carId: number;
+  startDate: string;
+  endDate: string;
+  user: User;
 }
