@@ -36,8 +36,8 @@ export const carsSlice = createSlice({
       })
       .addCase(fetchAllCars.rejected, (state, action) => {
         state.status = "failed";
-        if (action.error.message) {
-          state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
         }
       })
       .addCase(fetchCarById.pending, (state) => {
@@ -46,12 +46,12 @@ export const carsSlice = createSlice({
       })
       .addCase(fetchCarById.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.car = action.payload.data;
+        state.car = action.payload;
       })
       .addCase(fetchCarById.rejected, (state, action) => {
         state.status = "failed";
-        if (action.error.message) {
-          state.error = action.error.message;
+        if (action.payload) {
+          state.error = action.payload;
         }
       });
   },
