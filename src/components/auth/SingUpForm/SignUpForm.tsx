@@ -1,19 +1,24 @@
-import React from "react";
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import toast from "react-hot-toast";
 
-import InputField from "../../shared/InputField/InputField";
+import { LogInFormValues } from "../LogInForm/LogInForm";
+
+import InputField from "@/components/shared/InputField/InputField";
 import Divider from "../shared/Divider/Divider";
 import GoogleAuth from "../shared/GoogleAuth/GoogleAuth";
 
-import { signUp } from "/src/redux/auth/operations";
+import { useAppDispatch } from "@/redux/hooks";
+import { signUp } from "@/redux/auth/operations";
 import { signUpSchema } from "../validation/signup.schema";
 
 import css from "./SignUpForm.module.css";
 
-const initialValues = {
+interface SignUpFormValues extends LogInFormValues {
+  fullName: string;
+}
+
+const initialValues: SignUpFormValues = {
   fullName: "",
   email: "",
   password: "",
@@ -21,15 +26,16 @@ const initialValues = {
 
 const SignUpForm = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: SignUpFormValues) => {
     try {
       await dispatch(signUp(values)).unwrap();
       navigate("/autopark");
       toast.success("You have Registered successfully!");
-    } catch (e) {
-      toast.error(e);
+    } catch (e: unknown) {
+      if (typeof e === "string") toast.error(e);
+      else toast.error("Something went wrong");
     }
   };
 

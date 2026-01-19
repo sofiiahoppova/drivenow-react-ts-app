@@ -1,8 +1,10 @@
-import React from "react";
-
 import css from "./GoogleAuth.module.css";
 
-const GoogleAuth = ({ name }) => {
+interface Props {
+  name: string;
+}
+
+const GoogleAuth = ({ name }: Props) => {
   return (
     <button className={css.button}>
       {name} with Google

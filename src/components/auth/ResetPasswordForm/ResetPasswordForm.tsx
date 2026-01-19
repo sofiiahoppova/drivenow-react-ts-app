@@ -1,17 +1,20 @@
-import React from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import toast from "react-hot-toast";
 
-import InputField from "../../shared/InputField/InputField";
+import InputField from "@/components/shared/InputField/InputField";
 
-import { resetPassword } from "/src/redux/auth/operations";
+import { useAppDispatch } from "@/redux/hooks";
+import { resetPassword } from "@/redux/auth/operations";
 import { resetPasswordSchema } from "../validation/resetpassword.shema";
 
 import css from "./ResetPasswordForm.module.css";
 
-const initialValues = {
+interface FormValues {
+  password: string;
+}
+
+const initialValues: FormValues = {
   password: "",
 };
 
@@ -19,17 +22,20 @@ const ResetPasswordForm = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async (values: FormValues) => {
     try {
-      await dispatch(
-        resetPassword({ password: values.password, token })
-      ).unwrap();
-      navigate("/login");
-      toast.success("You have updated password successfully!");
-    } catch (e) {
-      toast.error(e);
+      if (token) {
+        await dispatch(
+          resetPassword({ password: values.password, token })
+        ).unwrap();
+        navigate("/login");
+        toast.success("You have updated password successfully!");
+      } else toast.error("Access denied");
+    } catch (e: unknown) {
+      if (typeof e === "string") toast.error(e);
+      else toast.error("Something went wrong");
     }
   };
 

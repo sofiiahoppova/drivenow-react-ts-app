@@ -1,15 +1,14 @@
-import React from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
 
-import { setClose } from "/src/redux/modal/modalSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { setClose } from "@/redux/modal/modalSlice";
 
 import css from "./AuthModal.module.css";
 
 const AuthModal = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleNavigate = () => {
     navigate("/signup");
