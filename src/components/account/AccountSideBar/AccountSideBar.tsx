@@ -1,14 +1,12 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { selectMe } from "/src/redux/user/selectors";
-import { setOpen } from "/src/redux/modal/modalSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectMe } from "@/redux/user/selectors";
+import { setOpen } from "@/redux/modal/modalSlice";
 
 import css from "./AccountSideBar.module.css";
 
 const AccountSideBar = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectMe);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectMe);
 
   return (
     <aside className={css.sidebar}>
@@ -20,11 +18,11 @@ const AccountSideBar = () => {
         />
         <div className={css.infoWrapper}>
           <span className={css.infoTitle}>Your Name</span>
-          <p className={css.infoText}>{user.fullName}</p>
+          <p className={css.infoText}>{user?.fullName}</p>
         </div>
         <div className={css.infoWrapper}>
           <span className={css.infoTitle}>Your Email</span>
-          <p className={css.infoText}>{user.email}</p>
+          <p className={css.infoText}>{user?.email}</p>
         </div>
       </div>
       <button

@@ -1,39 +1,43 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import toast from "react-hot-toast";
 
-import InputField from "../../shared/InputField/InputField";
+import InputField from "@/components/shared/InputField/InputField";
 
-import { selectMe } from "/src/redux/user/selectors";
-import { updateUserMe } from "/src/redux/user/operations";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectMe } from "@/redux/user/selectors";
+import { updateUserMe } from "@/redux/user/operations";
 import { updateUserSchema } from "../validation/updateuser.schema";
 
 import css from "./UpdateUserForm.module.css";
 
+interface FormValues {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  dateOfBirth: string;
+}
+
 const UpdateUserFrom = () => {
-  const dispatch = useDispatch();
-  const user = useSelector(selectMe);
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectMe);
 
-  const handleSubmit = async (values) => {
-    let data;
-
+  const handleSubmit = async (values: FormValues) => {
+    let data = {};
     for (const [key, value] of Object.entries(values)) {
       if (value) {
         data = { ...data, [key]: value };
       }
     }
-    console.log(data);
-
     try {
       await dispatch(updateUserMe(data)).unwrap();
       toast.success("You have updated data successfully!");
-    } catch (e) {
-      toast.error(e);
+    } catch (e: unknown) {
+      if (typeof e === "string") toast.error(e);
+      else toast.error("Something went wrong");
     }
   };
 
-  const initialValues = {
+  const initialValues: FormValues = {
     fullName: user?.fullName || "",
     email: user?.email || "",
     phoneNumber: user?.phoneNumber || "",
