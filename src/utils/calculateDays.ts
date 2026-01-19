@@ -1,7 +1,7 @@
-export const calculateDays = (pickup, dropoff) => {
+export const calculateDays = (pickup: string, dropoff: string) => {
   const start = new Date(pickup);
   const end = new Date(dropoff);
-  const diff = end - start;
+  const diff = parseInt(end.toString()) - parseInt(start.toString());
 
   if (isNaN(diff) || diff <= 0) return 0;
 

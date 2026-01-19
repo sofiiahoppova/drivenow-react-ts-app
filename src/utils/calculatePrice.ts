@@ -1,4 +1,10 @@
-export const calculatePrice = (car, days, plan) => {
+import { Car } from "@/types";
+
+export const calculatePrice = (
+  car: Car,
+  days: number,
+  plan: "full" | "basic"
+) => {
   let dailyRate =
     days <= 6
       ? car.prices.dailyPrice
