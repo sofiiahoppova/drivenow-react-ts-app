@@ -143,7 +143,7 @@ const BookingForm = () => {
         </div>
         <InputField
           label={"Passport"}
-          id={"passport"}
+          id={"passportSerial"}
           placeholder={"Serial number"}
         />
         <label className={css.fileWrapper}>
@@ -157,7 +157,7 @@ const BookingForm = () => {
         </label>
         <InputField
           label={"Driver`s License"}
-          id={"license"}
+          id={"driverLicenseSerial"}
           placeholder={"Serial number"}
         />
         <label className={css.fileWrapper}>
