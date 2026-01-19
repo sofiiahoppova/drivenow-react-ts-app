@@ -1,8 +1,6 @@
-import React from "react";
-
-import AccountSideBar from "/src/components/account/AccountSideBar/AccountSideBar";
-import UpdateUserFrom from "/src/components/account/UpdateUserForm/UpdateUserFrom";
-import BookingsList from "/src/components/booking/BookingList/BookingsList";
+import AccountSideBar from "@/components/account/AccountSideBar/AccountSideBar";
+import UpdateUserFrom from "@/components/account/UpdateUserForm/UpdateUserFrom";
+import BookingsList from "@/components/booking/BookingList/BookingsList";
 
 import css from "./AccountPage.module.css";
 
