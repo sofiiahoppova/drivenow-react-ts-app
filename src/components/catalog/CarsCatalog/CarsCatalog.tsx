@@ -22,6 +22,7 @@ import {
 } from "@/redux/cars/selectors";
 
 import css from "./CarsCatalog.module.css";
+import { buildFiltersPayload } from "@/utils/buildFiltersPayload";
 
 const CarsCatalog = () => {
   const dispatch = useAppDispatch();
@@ -35,15 +36,16 @@ const CarsCatalog = () => {
   const error = useAppSelector(selectCarsError);
 
   useEffect(() => {
-    dispatch(
-      fetchAllCars({
-        page,
-        perPage: 8,
-        startDate,
-        endDate,
-        ...filters,
-      })
-    );
+    const payload = buildFiltersPayload({
+      filters,
+      dates: { startDate, endDate },
+      page,
+      perPage: 8,
+    });
+
+    if (payload) {
+      dispatch(fetchAllCars(payload));
+    }
   }, [dispatch, page, filters, startDate, endDate]);
 
   useEffect(() => {
