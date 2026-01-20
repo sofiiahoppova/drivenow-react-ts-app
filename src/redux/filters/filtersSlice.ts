@@ -8,7 +8,7 @@ interface Filters {
   carClass: string | null;
 }
 
-interface FiltersState {
+export interface FiltersState {
   dates: { startDate: string | null; endDate: string | null };
   filters: Filters;
   page: number;
