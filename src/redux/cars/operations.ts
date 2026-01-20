@@ -6,7 +6,7 @@ import { Car, FetchCarsResponse, Filters } from "@/types";
 
 export const fetchAllCars = createAsyncThunk<
   FetchCarsResponse,
-  Filters,
+  Partial<Filters>,
   { rejectValue: string }
 >("cars/fetchAllCars", async (filters, thunkAPI) => {
   try {
