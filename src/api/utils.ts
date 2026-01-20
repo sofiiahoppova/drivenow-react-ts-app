@@ -1,6 +1,6 @@
 import { api } from "./axiosInstance";
 
-export const setAuthHeader = (token) => {
+export const setAuthHeader = (token: string) => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
