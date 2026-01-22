@@ -10,4 +10,4 @@ export const modalComponents = {
   LogOutModal,
   AuthModal,
   DeleteBookingModal,
-};
+} as const;
